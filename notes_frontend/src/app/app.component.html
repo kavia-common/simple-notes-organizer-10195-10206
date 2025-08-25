@@ -1,0 +1,19 @@
+<mat-sidenav-container class="app-container">
+  <mat-sidenav mode="side" opened class="app-sidenav">
+    <app-sidebar
+      (createNote)="onCreateNote()"
+      (search)="onSearch($event)">
+    </app-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="main-content">
+    <div class="notes-grid">
+      <app-note-card
+        *ngFor="let note of notes"
+        [note]="note"
+        (edit)="onEditNote($event)"
+        (delete)="onDeleteNote($event)">
+      </app-note-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
