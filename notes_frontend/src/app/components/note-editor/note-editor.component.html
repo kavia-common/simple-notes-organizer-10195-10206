@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Note' : 'Create Note' }}</h2>
+
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" placeholder="Note title">
+      <mat-error *ngIf="noteForm.get('title')?.invalid">Title is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Content</mat-label>
+      <textarea matInput formControlName="content" placeholder="Note content" rows="6"></textarea>
+      <mat-error *ngIf="noteForm.get('content')?.invalid">Content is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Color</mat-label>
+      <input matInput type="color" formControlName="color">
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="noteForm.invalid">
+      {{ isEditMode ? 'Update' : 'Create' }}
+    </button>
+  </mat-dialog-actions>
+</form>

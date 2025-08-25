@@ -1,0 +1,21 @@
+<mat-card class="note-card" [style.backgroundColor]="note.color">
+  <mat-card-header>
+    <mat-card-title>{{ note.title }}</mat-card-title>
+    <mat-card-subtitle>
+      Last updated: {{ note.updatedAt | date:'medium' }}
+    </mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <p>{{ note.content }}</p>
+  </mat-card-content>
+  
+  <mat-card-actions align="end">
+    <button mat-icon-button color="primary" (click)="onEdit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="onDelete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

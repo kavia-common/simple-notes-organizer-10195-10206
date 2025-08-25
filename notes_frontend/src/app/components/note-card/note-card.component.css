@@ -1,0 +1,19 @@
+.note-card {
+  margin: 16px;
+  width: 300px;
+  transition: transform 0.2s;
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-content {
+  margin-top: 16px;
+  white-space: pre-wrap;
+}
+
+mat-card-actions {
+  padding: 8px;
+}
